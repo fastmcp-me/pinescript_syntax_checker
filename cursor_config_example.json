@@ -1,8 +1,8 @@
-{
-  "mcpServers": {
-    "pinescript-syntax-checker": {
-      "command": "python",
-      "args": ["-m", "pinescript_syntax_checker.server"]
-    }
-  }
-} 
+   {
+     "mcpServers": {
+       "pinescript-syntax-checker": {
+         "command": "uvx",
+         "args": ["pinescript-syntax-checker"]
+       }
+     }
+   }

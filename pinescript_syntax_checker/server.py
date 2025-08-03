@@ -4,15 +4,15 @@ MCP Server for PineScript syntax checking
 """
 
 import asyncio
-from typing import Any, Optional
+from typing import Any, Optional, Dict, Union
 import httpx
 from mcp.server.fastmcp import FastMCP
 from .pinescript_checker import PineScriptChecker
 
-app = FastMCP('pine-syntax-checker')
+app = FastMCP('pinescript-syntax-checker')
 
 @app.tool()
-async def check_syntax(pine_code: str) -> Optional[dict[str, Any]]:
+async def check_syntax(pine_code: str) -> Optional[Dict[str, Any]]:
     """
     Check PineScript syntax using TradingView's API
 

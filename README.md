@@ -76,18 +76,6 @@ To use this MCP server in Cursor:
    }
    ```
 
-   **Method 3 - Using local development:**
-   ```json
-   {
-     "mcpServers": {
-       "pinescript-syntax-checker": {
-         "command": "python",
-         "args": ["-m", "pinescript_syntax_checker.server"],
-         "cwd": "/path/to/your/pinescript-syntax-checker"
-       }
-     }
-   }
-   ```
 
 3. **Restart Cursor** to load the MCP server
 

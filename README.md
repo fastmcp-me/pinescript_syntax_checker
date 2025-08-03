@@ -13,22 +13,18 @@ A Model Context Protocol (MCP) server for checking PineScript syntax using Tradi
 ### Option 1: Using uvx (Recommended)
 
 ```bash
-# Install and run directly
+# Run directly (will install automatically if needed)
 uvx pinescript-syntax-checker
-
-# Or install first, then run
-uvx install pinescript-syntax-checker
-uvx run pinescript-syntax-checker
 ```
 
-### Option 2: Using uv
+### Option 2: Using uv (Development)
 
 ```bash
 # Clone and run
 git clone https://github.com/erevus-cn/pinescript-syntax-checker.git
 cd pinescript-syntax-checker
 uv sync
-uv run python run_server.py
+uv run python -m pinescript_syntax_checker.server
 ```
 
 ### Option 3: Using pip
@@ -46,31 +42,29 @@ python -m pinescript_syntax_checker.server
 
 ## MCP Integration
 
-### Install MCP Server
-
-```bash
-# If using uvx
-uvx pinescript-syntax-checker --mcp-install
-
-# If using local development
-uv run mcp install run_server.py
-```
-
 ### Configure in Cursor
 
-#### Method 1: No Configuration Required (Recommended)
-
-After installing with `uvx`, the server will be automatically available in Cursor.
-
-#### Method 2: Manual Configuration
-
-If you need manual configuration:
+To use this MCP server in Cursor:
 
 1. **Open Cursor Settings**:
    - Press `Cmd+,` (macOS) or `Ctrl+,` (Windows/Linux)
    - Go to "Extensions" → "MCP"
 
 2. **Add Server Configuration**:
+
+   **Method 1 - Using uvx (Recommended):**
+   ```json
+   {
+     "mcpServers": {
+       "pinescript-syntax-checker": {
+         "command": "uvx",
+         "args": ["pinescript-syntax-checker"]
+       }
+     }
+   }
+   ```
+
+   **Method 2 - Using installed package:**
    ```json
    {
      "mcpServers": {
@@ -82,7 +76,39 @@ If you need manual configuration:
    }
    ```
 
+   **Method 3 - Using local development:**
+   ```json
+   {
+     "mcpServers": {
+       "pinescript-syntax-checker": {
+         "command": "python",
+         "args": ["-m", "pinescript_syntax_checker.server"],
+         "cwd": "/path/to/your/pinescript-syntax-checker"
+       }
+     }
+   }
+   ```
+
 3. **Restart Cursor** to load the MCP server
+
+### Verify Installation
+
+To verify the MCP server is working correctly:
+
+1. **Test server startup:**
+   ```bash
+   # This should start the server (press Ctrl+C to stop)
+   uvx pinescript-syntax-checker
+   ```
+
+2. **In Cursor:** After configuration, try asking:
+   ```
+   Can you check this PineScript code for syntax errors?
+   
+   //@version=5
+   indicator("Test", overlay=true)
+   plot(close)
+   ```
 
 ## API
 

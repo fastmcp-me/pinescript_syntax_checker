@@ -76,20 +76,13 @@ To use this MCP server in Cursor:
    }
    ```
 
-
 3. **Restart Cursor** to load the MCP server
 
 ### Verify Installation
 
 To verify the MCP server is working correctly:
 
-1. **Test server startup:**
-   ```bash
-   # This should start the server (press Ctrl+C to stop)
-   uvx pinescript-syntax-checker
-   ```
-
-2. **In Cursor:** After configuration, try asking:
+1. **In Cursor:** After configuration, try asking:
    ```
    Can you check this PineScript code for syntax errors?
    

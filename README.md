@@ -1,3 +1,8 @@
+[![Add to Cursor](https://fastmcp.me/badges/cursor_dark.svg)](https://fastmcp.me/MCP/Details/813/pinescript-syntax-checker)
+[![Add to VS Code](https://fastmcp.me/badges/vscode_dark.svg)](https://fastmcp.me/MCP/Details/813/pinescript-syntax-checker)
+[![Add to Claude](https://fastmcp.me/badges/claude_dark.svg)](https://fastmcp.me/MCP/Details/813/pinescript-syntax-checker)
+[![Add to ChatGPT](https://fastmcp.me/badges/chatgpt_dark.svg)](https://fastmcp.me/MCP/Details/813/pinescript-syntax-checker)
+
 # PineScript Syntax Checker MCP Server
 
 A Model Context Protocol (MCP) server for checking PineScript syntax using TradingView's API.
